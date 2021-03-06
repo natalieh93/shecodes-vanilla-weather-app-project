@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <!--Bootstrap-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <!--Font Awesome-->
+    <script
+      src="https://kit.fontawesome.com/8b6a10b4d8.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--Google Fonts-->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Questrial&display=swap"
+      rel="stylesheet"
+    />
+    <!--Axios-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!--CSS file-->
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+
+  <body>
+    <!--Weather App-->
+    <div class="weather-app-box">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-7">
+            <!--Search Engine-->
+            <form class="search-city-form" id="search-city-form">
+              <div>
+                <input
+                  autocomplete="off"
+                  autofocus="off"
+                  class="form-control"
+                  id="search-city-input"
+                  type="search"
+                  placeholder="Search for a city here"
+                />
+              </div>
+            </form>
+          </div>
+          <!--Search button-->
+          <div class="col-1">
+            <button
+              class="btn btn-sm btn-primary-outline search-city-button"
+              id="search-city-button"
+              type="button"
+            >
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+          <!--Current location button-->
+          <div class="col-1">
+            <button
+              class="btn btn-sm btn-primary-outline current-location-button"
+              id="current-location-button"
+              type="button"
+            >
+              <i class="fas fa-map-marker-alt"></i>
+            </button>
+          </div>
+
+          <!--Temperature units-->
+          <span class="col temperature-units">
+            <a href="#" id="celsius-link"> °C</a>
+            |
+            <a href="#" id="fahrenheit-link">°F</a>
+          </span>
+        </div>
+
+        <!--Current date and time-->
+        <div>
+          <h3 class="current-date-and-time" id="current-date-and-time"></h3>
+        </div>
+
+        <!--City name-->
+        <div>
+          <h1 class="city-and-country" id="city-and-country"></h1>
+        </div>
+
+        <!--Current weather-->
+        <h4
+          class="current-weather-description"
+          id="current-weather-description"
+        >
+          <strong></strong>
+        </h4>
+
+        <div class="row current-weather">
+          <div class="col current-weather-icon">
+            <img
+              src="images/01n.png"
+              height="68"
+              width="68"
+              id="current-weather-icon"
+            />
+          </div>
+
+          <!--Current temperature-->
+          <div class="col current-temperature" id="current-temperature">
+            -3°
+          </div>
+          <!--Detailed weather conditions-->
+          <div class="col weather-details">
+            <ul>
+              <li class="feels-like">
+                <i class="fas fa-thermometer-three-quarters"></i><em>&nbsp; Feels
+                like:</em> <span id="feels-like"><strong></strong></span>
+              </li>
+              <li class="humidity">
+                <i class="fas fa-tint"></i>
+                <em>&nbsp;Humidity:</em><span id="humidity"><strong></strong></span>
+              </li>
+              <li class="wind">
+                <i class="fas fa-wind"></i><em>&nbsp;Wind:</em><span id="wind">
+                  37 km/hr</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!--Maximum and minimum temperatures-->
+        <h5 class="max-and-min-temperatures">
+          <i class="fas fa-arrow-up"></i>&nbsp;
+          <em>High:</em><span id="maximum-temperature"></span>&nbsp;
+          <strong>|</strong>&nbsp;&nbsp;
+          <i class="fas fa-arrow-down"></i>&nbsp;&nbsp;<em>Low:</em><span
+            id="minimum-temperature"
+          ></span>
+        </h5>
+
+        <!--Hourly forecast header-->
+        <div>
+          <h6 class="hourly-forecast-header">3-hourly Weather Forecast</h6>
+        </div>
+        <!--Line break-->
+        <hr class="hr-1" />
+        <!--Hourly forecast section-->
+        <div
+          class="row d-flex justify-content-center col-sm weather-per-hour-section"
+          id="hourly-forecast"
+        >
+          <div class="col hour-box">
+            <bold>10:00</bold>
+            <div class="col">
+              <img class="hour-weather-icon" src="" width="25" height="25" />
+            </div>
+            <div class="col hour-temperature">-1°</div>
+          </div>
+          <div class="col hour-box">
+            11:00
+            <div class="col">
+              <img class="hour-weather-icon" src="" width="25" height="25" />
+            </div>
+            <div class="col hour-temperature">-1°</div>
+          </div>
+          <div class="col hour-box">
+            12:00
+            <div class="col">
+              <img class="hour-weather-icon" src="" width="25" height="25" />
+            </div>
+            <div class="col hour-temperature">-1°</div>
+          </div>
+          <div class="col hour-box">
+            13:00
+            <div class="col">
+              <img class="hour-weather-icon" src=" width="25" height="25" />
+            </div>
+            <div class="col hour-temperature">-1°</div>
+          </div>
+          <div class="col hour-box">
+            14:00
+            <div class="col">
+              <img class="hour-weather-icon" src="" width="25" height="25" />
+            </div>
+            <div class="col hour-temperature">-1°</div>
+          </div>
+        </div>
+
+        <!--Five day forecast section -->
+        <div>
+          <!--Five day weather forecast header-->
+          <h6 class="daily-forecast-header">5-day Outlook</h6>
+        </div>
+        <!--Line break-->
+        <hr class="hr-2" />
+        <div
+          class="row daily-forecast"
+          id="daily-forecast"
+        >
+          <div class="col day-forecast" id="day-forecast">
+            Sat
+            <div>
+              <img
+                class="weather-icon-forecast"
+                src=""
+                width="30"
+                height="30"
+              />
+            </div>
+            <div class="temperature-forecast" id="temperature-forecast">
+              <strong>-2°</strong>
+            </div>
+          </div>
+
+          <div class="col day-forecast" id="day-forecast">
+            Sun
+            <div>
+              <img
+                class="weather-icon-forecast"
+                src=""
+                width="30"
+                height="30"
+              />
+            </div>
+            <div class="col temperature-forecast" id="temperature-forecast">
+              <strong>-6°</strong>
+            </div>
+          </div>
+
+          <div class="col day-forecast" id="day-forecast">
+            Mon
+            <div>
+              <img
+                class="weather-icon-forecast"
+                src=""
+                width="30"
+                height="30"
+              />
+            </div>
+            <div
+              class="col temperature-forecast"
+              id="temperature-forecast"
+            ></div>
+            <strong>-0°</strong>
+          </div>
+
+          <div class="col day-forecast" id="day-forecast">
+            Tues
+            <div></div>
+              <img
+                class="weather-icon-forecast"
+                src=""
+                width="30"
+                height="30"
+              />
+            </div>
+            <div class="col temperature-forecast" id="temperature-forecast">
+              <strong>-7°</strong>
+            </div>
+          </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!--Footer-->
+
+      <p class="weather-icon-creators">
+        Weather icons made by
+        <a
+          href="https://www.flaticon.com/authors/good-ware"
+          title="Good Ware"
+          class="weather-icon-creator"
+          >Good Ware</a
+        >
+        and
+        <a
+          href="http://www.pixelinspired.com/"
+          title="Zlatko Najdenovski"
+          class="weather-icon-creator"
+          >Zlatko Najdenovski</a
+        >
+        from
+        <a
+          href="https://www.flaticon.com/"
+          title="Flaticon"
+          class="flaticon-website"
+          >www.flaticon.com</a
+        >
+      </p>
+      <p class="footer">
+        Coded by
+        <a
+          href="https://www.linkedin.com/in/natalie-hood-4b088a10b/"
+          target="_blank"
+          class="coder"
+        >
+          Natalie Hood</a
+        >
+      </p>
+    </div>
+  </body>
+  <script src="src/app.js"></script>
+</html>
