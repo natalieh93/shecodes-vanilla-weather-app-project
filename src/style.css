@@ -175,15 +175,14 @@
 }
 
 .footer {
-  margin-top: -10px;
+  margin-top: 33px;
 }
 
-.weather-icon-creators {
-  margin-top: 12px;
-}
-.coder,
+.coder-link,
 .weather-icon-creator,
-.flaticon-website {
+.weather-icon-website,
+.github-link,
+.netlify-link {
   text-decoration: none;
 }
 
