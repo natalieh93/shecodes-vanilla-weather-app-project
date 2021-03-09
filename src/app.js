@@ -100,7 +100,7 @@ function displayWeather(response) {
   realFeelElement.innerHTML =
     " " + Math.round(response.data.main.feels_like) + "°";
   humidityElement.innerHTML = " " + response.data.main.humidity + "%";
-  windElement.innerHTML = " " + Math.round(response.data.wind.speed) + " km/hr";
+  windElement.innerHTML = " " + Math.round(response.data.wind.speed) + " km/h";
 
   console.log(response.data);
 }
