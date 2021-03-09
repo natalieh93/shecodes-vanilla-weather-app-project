@@ -159,12 +159,15 @@ function displayDailyForecast(response) {
 
   for (let index = 6; index <= 39; index+= 8) {
     dailyForecast = response.data.list[index];
-    let forecastDay = newDate (forecast.dt * 1000);
+    let forecastDay = new Date(dailyForecast.dt * 1000);
+    let days = ["Sun", "Mon", "Tues", "Wed", "Thurs","Fri","Sat"];
+    let day = days[forecastDay.getDay()];
+    
     dailyForecastElement.innerHTML += `
     <div class="col day-forecast">
-    ${days[forecastDay.getDay()]}
+    ${day}
     <div class="weather-icon-forecast">
-    <img src="images/${forecast.weather[0].icon}.png" width="24" height="24"/>
+    <img src="images/${dailyForecast.weather[0].icon}.png" width="24" height="24"/>
     </div>
     <div class="temperature-forecast">
     <strong>${Math.round(dailyForecast.main.temp)}°</strong>
