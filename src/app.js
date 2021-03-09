@@ -76,7 +76,7 @@ function displayWeather(response) {
   );
 
   // Additional weather details
-  let feelsLikeElement = document.querySelector("#feels-like");
+  let realFeelElement = document.querySelector("#real-feel");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
 
@@ -97,7 +97,7 @@ function displayWeather(response) {
     " " + Math.round(response.data.main.temp_min) + "°";
   currentWeatherDescriptionElement.innerHTML =
     response.data.weather[0].description;
-  feelsLikeElement.innerHTML =
+  realFeelElement.innerHTML =
     " " + Math.round(response.data.main.feels_like) + "°";
   humidityElement.innerHTML = " " + response.data.main.humidity + "%";
   windElement.innerHTML = " " + Math.round(response.data.wind.speed) + " km/hr";
