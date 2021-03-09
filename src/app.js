@@ -224,6 +224,58 @@ searchCityForm.addEventListener("submit", handleSubmit);
 let searchCityButton = document.querySelector("#search-city-button");
 searchCityButton.addEventListener("click", handleSubmit);
 
+// TOP CITIES 
+
+// Toronto
+function searchToronto(event) {
+  event.preventDefault();
+  searchCity("Toronto");
+  let cityCountryElement = document.querySelector("#city-and-country");
+  cityCountryElement.innerHTML = "Toronto";
+}
+let torontoButton = document.querySelector("#toronto-button");
+torontoButton.addEventListener("click", searchToronto);
+
+// London
+function searchLondon(event) {
+  event.preventDefault();
+   searchCity("London");
+  let cityCountryElement = document.querySelector("#city-and-country");
+  cityCountryElement.innerHTML = "London";
+}
+let londonButton = document.querySelector("#london-button");
+londonButton.addEventListener("click", searchLondon);
+
+// Paris
+function searchParis(event) {
+  event.preventDefault();
+  searchCity("Paris");
+  let cityCountryElement = document.querySelector("#city-and-country");
+  cityCountryElement.innerHTML = "Paris";
+}
+let parisButton = document.querySelector("#paris-button");
+parisButton.addEventListener("click", searchParis);
+
+// Tokyo
+function searchTokyo(event) {
+  event.preventDefault();
+   searchCity("Tokyo");
+  let cityCountryElement = document.querySelector("#city-and-country");
+  cityCountryElement.innerHTML = "Tokyo";
+}
+let tokyoButton = document.querySelector("#tokyo-button");
+tokyoButton.addEventListener("click", searchTokyo);
+
+// Sydney
+function searchSydney(event) {
+  event.preventDefault();
+   searchCity("Sydney");
+  let cityCountryElement = document.querySelector("#city-and-country");
+  cityCountryElement.innerHTML = "Sydney";
+}
+let sydneyButton = document.querySelector("#sydney-button");
+sydneyButton.addEventListener("click", searchSydney);
+
 // Default city //
 searchCity("Vienna");
 

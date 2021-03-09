@@ -1,3 +1,19 @@
+button {
+  border: none;
+  background-color: transparent;
+  color: white;
+  padding: 7px 20px 0 0;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:hover {
+  text-decoration: underline;
+  transition: all 200ms ease-in-out;
+}
+
 .weather-app-box {
   font-size: 10px;
   margin: 10px auto;
@@ -12,6 +28,12 @@
   max-width: 510px;
 
   box-shadow: 10px 10px 40px #09214f;
+}
+
+.top-city-buttons {
+  font-family: "Questrial", sans-serif;
+  padding: 14px 0px 0px 35px;
+  font-size: 13px;
 }
 
 .search-city-form {
