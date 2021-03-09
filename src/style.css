@@ -22,8 +22,8 @@ ul {
   list-style: none;
   text-align: right;
   position: relative;
-  bottom: 130px;
-  right: 21px;
+  bottom: 140px;
+  right: 15px;
 }
 
 .container {
@@ -139,7 +139,7 @@ ul {
 .current-weather-icon {
   position: relative;
   bottom: 10px;
-  left: 52px;
+  left: 46px;
 }
 
 .current-temperature {
@@ -148,7 +148,7 @@ ul {
   font-weight: 300;
   text-align: center;
   position: relative;
-  bottom: 75px;
+  bottom: 80px;
 }
 
 #real-feel,
