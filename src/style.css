@@ -139,7 +139,7 @@ ul {
 .current-weather-icon {
   position: relative;
   bottom: 10px;
-  left: 46px;
+  left: 41px;
 }
 
 .current-temperature {
@@ -168,7 +168,7 @@ ul {
   margin: 8px 0px -109px 0px;
   text-align: center;
   position: relative;
-  bottom: 138px;
+  bottom: 145px;
 }
 
 #maximum-temperature,
