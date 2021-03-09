@@ -156,20 +156,19 @@ function displayDailyForecast(response) {
   let dailyForecastElement = document.querySelector("#daily-forecast");
   dailyForecastElement.innerHTML = null;
   let dailyForecast = null;
-  console.log(response.data);
 
-  for (let index = 0; index < 5; index++) {
-    dailyForecast = response.data.list[index * 8];
-
+  for (let index = 6; index <= 39; index+= 8) {
+    dailyForecast = response.data.list[index];
+    let forecastDay = newDate (forecast.dt * 1000);
     dailyForecastElement.innerHTML += `
-<div class="col day-forecast">
-${formatDayForecast(dailyForecast.dt * 1000)}
-<div class="weather-icon-forecast">
-<img src="images/${dailyForecast.weather[0].icon}.png" width="25" height="25"/>
-</div>
-<div class="temperature-forecast">
-${Math.round(dailyForecast.main.temp)}°
-</div></div>`;
+    <div class="col day-forecast">
+    ${days[forecastDay.getDay()]}
+    <div class="weather-icon-forecast">
+    <img src="images/${forecast.weather[0].icon}.png" width="24" height="24"/>
+    </div>
+    <div class="temperature-forecast">
+    <strong>${Math.round(dailyForecast.main.temp)}°</strong>
+    </div></div>`;
   }
 }
 
