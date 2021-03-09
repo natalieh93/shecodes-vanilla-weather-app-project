@@ -17,7 +17,6 @@
       crossorigin="anonymous"
     ></script>
     <!--Google Fonts-->
-
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Questrial&display=swap"
@@ -31,8 +30,9 @@
 
   <body>
     <!--Weather App-->
-    <div class="weather-app-box">
-      <div class="container">
+    <div class="container">
+      <div class="weather-app">
+        <!--Top city buttons-->
         <div class="top-city-buttons">
           <button class="toronto" id="toronto-button">Toronto</button>
           <button class="london" id="london-button">London</button>
@@ -40,8 +40,9 @@
           <button class="tokyo" id="tokyo-button">Tokyo</button>
           <button class="sydney" id="sydney-button">Sydney</button>
         </div>
+
         <div class="row align-items-center">
-          <div class="col-7">
+          <div class="col-8">
             <!--Search Engine-->
             <form class="search-city-form" id="search-city-form">
               <div>
@@ -76,10 +77,9 @@
               <i class="fas fa-map-marker-alt"></i>
             </button>
           </div>
-
           <!--Temperature units-->
           <span class="col temperature-units">
-            <a href="#" id="celsius-link"> °C</a>
+            <a href="#" id="celsius-link" class="active"> °C</a>
             |
             <a href="#" id="fahrenheit-link">°F</a>
           </span>
@@ -90,12 +90,12 @@
           <h3 class="current-date-and-time" id="current-date-and-time"></h3>
         </div>
 
-        <!--City name-->
+        <!--Name of city and country-->
         <div>
           <h1 class="city-and-country" id="city-and-country"></h1>
         </div>
 
-        <!--Current weather-->
+        <!--Current weather description-->
         <h4
           class="current-weather-description"
           id="current-weather-description"
@@ -103,27 +103,28 @@
           <strong></strong>
         </h4>
 
+        <!--Current weather-->
         <div class="row current-weather">
-          <div class="col current-weather-icon">
+          <div>
             <img
               src="images/01n.png"
               height="68"
               width="68"
+              class="col current-weather-icon"
               id="current-weather-icon"
             />
           </div>
-
           <!--Current temperature-->
-          <div class="col current-temperature" id="current-temperature">
+          <span class="current-temperature" id="current-temperature">
             -3°
-          </div>
-          <!--Detailed weather conditions-->
-          <div class="col weather-details">
+          </span>
+          <!--Weather details-->
+          <span class="weather-details">
             <ul>
-              <li class="feels-like">
-                <i class="fas fa-thermometer-three-quarters"></i>&nbsp; Feels
-                like:
-                <span id="feels-like"><strong></strong></span>
+              <li class="real-feel">
+                <i class="fas fa-thermometer-three-quarters"></i>&nbsp; Real
+                feel:
+                <span id="real-feel"><strong></strong></span>
               </li>
               <li class="humidity">
                 <i class="fas fa-tint"></i>
@@ -135,8 +136,9 @@
                 <span id="wind"> 37 km/hr</span>
               </li>
             </ul>
-          </div>
+          </span>
         </div>
+
         <!--Maximum and minimum temperatures-->
         <h5 class="max-and-min-temperatures">
           <i class="fas fa-arrow-up"></i>&nbsp; High:
@@ -148,59 +150,60 @@
 
         <!--Hourly forecast header-->
         <div>
-          <h6 class="hourly-forecast-header">3-hourly Weather Forecast</h6>
+          <h6 class="hourly-forecast-header">3-Hourly Weather Forecast</h6>
         </div>
         <!--Line break-->
         <hr class="hr-1" />
         <!--Hourly forecast section-->
-        <div
-          class="row d-flex justify-content-center col-sm weather-per-hour-section"
-          id="hourly-forecast"
-        >
-          <div class="col hour-box">
-            <bold>10:00</bold>
+        <div class="row col-sm hourly-forecast" id="hourly-forecast">
+          <div class="col hour-box-0">
+            10:00
             <div class="col">
-              <img class="hour-weather-icon" src="" width="25" height="25" />
+              <img class="hour-weather-icon-0" src="" width="25" height="25" />
             </div>
-            <div class="col hour-temperature">-1°</div>
+            <div class="col hour-temperature-0"><strong>-1°</strong></div>
           </div>
-          <div class="col hour-box">
+
+          <div class="col hour-box-1">
             11:00
             <div class="col">
-              <img class="hour-weather-icon" src="" width="25" height="25" />
+              <img class="hour-weather-icon-1" src="" width="25" height="25" />
             </div>
-            <div class="col hour-temperature">-1°</div>
+            <div class="col hour-temperature-1"><strong>-1°</strong></div>
           </div>
-          <div class="col hour-box">
+
+          <div class="col hour-box-2">
             12:00
             <div class="col">
-              <img class="hour-weather-icon" src="" width="25" height="25" />
+              <img class="hour-weather-icon-2" src="" width="25" height="25" />
             </div>
-            <div class="col hour-temperature">-1°</div>
+            <div class="col hour-temperature-2"><strong>-1°</strong></div>
           </div>
-          <div class="col hour-box">
+
+          <div class="col hour-box-3">
             13:00
             <div class="col">
-              <img class="hour-weather-icon" src=" width="25" height="25" />
+              <img class="hour-weather-icon-3" src=" width="25" height="25" />
             </div>
-            <div class="col hour-temperature">-1°</div>
+            <div class="col hour-temperature-3"><strong>-1°</strong></div>
           </div>
-          <div class="col hour-box">
+
+          <div class="col hour-box-4">
             14:00
             <div class="col">
-              <img class="hour-weather-icon" src="" width="25" height="25" />
+              <img class="hour-weather-icon-4" src="" width="25" height="25" />
             </div>
-            <div class="col hour-temperature">-1°</div>
+            <div class="col hour-temperature-4"><strong>-1°</strong></div>
           </div>
         </div>
 
-        <!--Five day forecast section -->
+        <!--Five day weather forecast header-->
         <div>
-          <!--Five day weather forecast header-->
-          <h6 class="daily-forecast-header">5-day Outlook</h6>
+          <h6 class="daily-forecast-header">5-Day Outlook</h6>
         </div>
         <!--Line break-->
         <hr class="hr-2" />
+        <!--Five day forecast section -->
         <div class="row daily-forecast" id="daily-forecast">
           <div class="col day-forecast" id="day-forecast">
             Sat
