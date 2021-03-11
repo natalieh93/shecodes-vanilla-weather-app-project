@@ -188,13 +188,13 @@ function searchLocation(position) {
   axios.get(apiUrl).then(displayWeather);
 }
 
-function getCurrentLocation(event) {
+function getGeolocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
-let currentLocationButton = document.querySelector("#current-location-button");
-currentLocationButton.addEventListener("click", getCurrentLocation);
+let geolocationButton = document.querySelector("#geolocation-button");
+geolocationButton.addEventListener("click", getGeolocation);
 
 // Change city with search engine //
 

@@ -67,14 +67,14 @@ ul {
   right: 41px;
 }
 
-.current-location-button {
+.geolocation-button {
   border-radius: 9px;
   position: relative;
   right: 29px;
 }
 
 .search-city-button,
-.current-location-button {
+.geolocation-button {
   background-color: transparent;
   border-color: white;
   color: white;
@@ -82,7 +82,7 @@ ul {
 }
 
 .search-city-button:hover,
-.current-location-button:hover {
+.geolocation-button:hover {
   background-color: transparent;
   border-color: white;
   transition: all 200ms ease-in-out;
