@@ -45,9 +45,9 @@ function formatDate(date, timezone) {
 
   let currentTime = `${hours}:${minutes}`;
   let dateTimeElement = document.querySelector("#current-date-and-time");
-  dateTimeElement.innerHTML = `${day}, ${dayIndex} ${month} ${year} &nbsp;|&nbsp; ${currentTime}`;
+  dateTimeElement.innerHTML = `${day}, ${dayIndex} ${month} ${year} &nbsp;|&nbsp; Local time: ${currentTime}`;
 
-  let formattedDate = `${day}, ${dayIndex} ${month} ${year} &nbsp;|&nbsp; ${currentTime}`;
+  let formattedDate = `${day}, ${dayIndex} ${month} ${year} &nbsp;|&nbsp; Local time: ${currentTime}`;
 
   return formattedDate;
 }
