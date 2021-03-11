@@ -85,6 +85,7 @@ ul {
 .geolocation-button:hover {
   background-color: transparent;
   border-color: white;
+  color: white;
   transition: all 200ms ease-in-out;
 }
 
