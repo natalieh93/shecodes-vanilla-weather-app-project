@@ -95,6 +95,12 @@ function displayWeather(response) {
     " " + Math.round(response.data.main.temp_max) + "°";
   minimumTemperatureElement.innerHTML =
     " " + Math.round(response.data.main.temp_min) + "°";
+
+  celsiusTemperature = response.data.main.temp;
+  celsiusTemperatureFeelsLike = response.data.main.feels_like;
+  celsiusMinTemperature = response.data.main.temp_min;
+  celsiusMaxTemperature = response.data.main.temp_max;
+
   currentWeatherDescriptionElement.innerHTML =
     response.data.weather[0].description;
   realFeelElement.innerHTML =
@@ -290,11 +296,27 @@ function convertToFahrenheit(event) {
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   let temperatureElement = document.querySelector("#current-temperature");
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature)+"°";
+
+  let fahrenheitTemperatureFeelsLike = (celsiusTemperatureFeelsLike * 9)/5+32;
+  document.querySelector ("#real-feel").innerHTML = Math.round (fahrenheitTemperatureFeelsLike)+ "°";
+
+  let fahrenheitMinTemperature = (celsiusMinTemperature * 9) / 5 + 32;
+  document.querySelector ("#minimum-temperature").innerHTML = Math.round (fahrenheitMinTemperature) + "°";
+
+  let fahrenheitMaxTemperature = (celsiusMaxTemperature * 9) / 5 + 32;
+  document.querySelector ("#maximum-temperature").innerHTML = Math.round (fahrenheitMaxTemperature) + "°";
+
+  celsiusLink.addEventListener("click", convertToCelsius);
+  fahrenheitLink.removeEventListener("click", convertToFahrenheit);
+
 }
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
 let celsiusTemperature = null;
+let celsiusTemperatureFeelsLike = null;
+let celsiusMinTemperature = null;
+let celsiusMaxTemperature = null;
 
 /// Convert to Celsius //
 
@@ -302,6 +324,16 @@ function convertToCelsius(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#current-temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemperature) + "°";
+
+  let realFeelElement =  document.querySelector ("#real-feel");
+  realFeelElement.innerHTML = Math.round (celsiusTemperatureFeelsLike)+"°";
+
+  document.querySelector ("#minimum-temperature").innerHTML = Math.round (celsiusMinTemperature) + "°" ;
+  document.querySelector ("#maximum-temperature").innerHTML = Math.round (celsiusMaxTemperature) + "°";
+
+  celsiusLink.removeEventListener("click", convertToCelsius);
+  fahrenheitLink.addEventListener("click", convertToFahrenheit);
+
 }
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", convertToCelsius);
