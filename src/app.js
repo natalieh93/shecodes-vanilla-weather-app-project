@@ -252,7 +252,7 @@ function displayDailyForecast(response) {
     <img src="images/${dailyForecast.weather[0].icon}.png" width="24" height="24"/>
     </div>
     <div class="temperature-forecast">
-    <strong>${Math.round(dailyForecast.main.temp)}°</strong>
+    ${Math.round(dailyForecast.main.temp)}°
     </div></div>`;
   }
 }
