@@ -11,7 +11,7 @@ button {
   background-color: transparent;
   color: white;
   font-family: "Questrial", sans-serif;
-  padding: 7px 20px 0px 0px;
+  padding: 15px 10px 1px 5px;
 }
 
 button:focus {
@@ -26,7 +26,7 @@ ul {
   list-style: none;
   text-align: right;
   position: relative;
-  bottom: 140px;
+  bottom: 128px;
   right: 15px;
 }
 
@@ -35,8 +35,8 @@ ul {
   background-image: linear-gradient(315deg, #09214f 0%, #385fa477 74%);
   border-radius: 20px;
   box-shadow: 5px 10px 10px 5px rgba(15, 15, 15);
-  max-height: 600px;
-  max-width: 400px;
+  max-height: 610px;
+  max-width: 380px;
 }
 
 .weather-app {
@@ -47,12 +47,13 @@ ul {
 
 .top-city-buttons {
   font-family: "Questrial", sans-serif;
-  font-size: 12.5px;
-  padding: 13px 0px 5px 32px;
+  font-size: 13px;
+  padding: 12px 0px 5px 40px;
 }
 
 .search-city-form {
-  padding: 13px 30px;
+  padding: 10px 33px;
+  width: 222px;
 }
 
 .form-control {
@@ -64,13 +65,13 @@ ul {
 .search-city-button {
   border-radius: 9px;
   position: relative;
-  right: 41px;
+  right: 51px;
 }
 
 .geolocation-button {
   border-radius: 9px;
   position: relative;
-  right: 29px;
+  right: 70px;
 }
 
 .search-city-button,
@@ -93,8 +94,10 @@ ul {
   color: white;
   font-size: 14px;
   font-weight: 100;
+  text-align: right;
   position: relative;
-  right: 15px;
+  bottom: 35px;
+  right: 20px;
 }
 
 #celsius-link,
@@ -115,15 +118,15 @@ ul {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 12px;
   font-weight: 200;
-  margin-top: 10px;
+  margin-top: -10px;
   text-align: center;
 }
 
 .city-and-country {
   color: white;
   font-family: "Questrial", sans-serif;
-  font-size: 19px;
-  margin-top: 20px;
+  font-size: 17.5px;
+  margin-top: 22px;
   text-align: center;
 }
 
@@ -131,7 +134,7 @@ ul {
   color: #3ab5ca;
   font-family: "Questrial", sans-serif;
   font-size: 14px;
-  margin: 12px 0px 20px;
+  margin: 10px 0px 10px;
   text-align: center;
 }
 
@@ -141,45 +144,36 @@ ul {
 
 .current-weather-icon {
   position: relative;
-  bottom: 20px;
+  bottom: 15px;
   left: 35px;
 }
 
 .current-temperature {
   color: white;
-  font-size: 46px;
+  font-size: 40px;
   font-weight: 300;
   text-align: center;
   position: relative;
-  bottom: 85px;
-}
-
-#real-feel,
-#humidity,
-#wind {
-  color: white;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-weight: 300;
-  line-height: 2px;
+  bottom: 70px;
 }
 
 .max-and-min-temperatures {
   font-family: "Roboto", sans-serif;
   color: white;
   font-size: 11px;
-  margin: 8px 0px -119px 0px;
+  margin: 25px 0px -119px 0px;
   text-align: center;
   position: relative;
   bottom: 148px;
 }
 
+#real-feel,
+#humidity,
+#wind,
 #maximum-temperature,
 #minimum-temperature {
   color: white;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-weight: 300;
+  font-family: "Questrial", sans-serif;
 }
 
 .hourly-forecast-header,
@@ -199,8 +193,8 @@ ul {
 .hr-1,
 .hr-2 {
   color: white;
-  margin: -8px 30px 25px 30px;
-  max-width: 500px;
+  margin: -8px 18px 25px 30px;
+  max-width: 5600px;
 }
 
 .hourly-forecast,
@@ -208,17 +202,17 @@ ul {
   color: white;
   font-size: 12px;
   font-weight: 200;
-  line-height: 29px;
-  margin: -25px 30px 15px;
-  padding: 10px;
+  line-height: 32px;
+  margin: -17px 30px 23px;
+  padding: 2px;
   text-align: center;
 }
 
 .footer {
   font-family: "Questrial", sans-serif;
-  font-size: 10px;
+  font-size: 9.5px;
   line-height: 1.5;
-  margin-top: -10px;
+  margin-top: -15px;
   text-align: center;
   text-decoration: none;
 }
