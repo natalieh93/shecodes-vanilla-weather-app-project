@@ -305,6 +305,10 @@ function displayDailyForecast(response) {
 // Convert to Celsius 
 function convertToCelsius(event) {
   event.preventDefault();
+  
+  convertHourlyForecast("celsius");
+  convertDailyForecast ("celsius");
+  
   document.querySelector("#current-temperature").innerHTML = Math.round(celsiusTemperature) + "°";
   document.querySelector ("#real-feel").innerHTML = Math.round (celsiusTemperatureFeelsLike)+"°";
   document.querySelector ("#minimum-temperature").innerHTML = Math.round (celsiusMinTemperature) + "°" ;
@@ -320,6 +324,9 @@ celsiusLink.addEventListener("click", convertToCelsius);
 // Convert to Fahrenheit 
 function convertToFahrenheit(event) {
   event.preventDefault();
+
+  convertHourlyForecast("fahrenheit");
+  convertDailyForecast("fahrenheit");
 
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   let temperatureElement = document.querySelector("#current-temperature");
@@ -345,6 +352,35 @@ let celsiusTemperature = null;
 let celsiusTemperatureFeelsLike = null;
 let celsiusMinTemperature = null;
 let celsiusMaxTemperature = null;
+
+function convertHourlyForecast (unit) {
+  if (unit === "celsius") {
+
+  document.querySelectorAll ("#hour-temperature-forecast").forEach(function (temperature) {
+  let currentTemperature = temperature.innerHTML;
+  temperature.innerHTML = Math.round (currentTemperature * (5 / 9) - 32);
+   });
+  } else {
+  document.querySelectorAll("#hour-temperature-forecast").forEach (function (temperature) {
+  let currentTemperature = temperature.innerHTML;
+  temperature.innerHTML = Math.round(currentTemperature * (9 / 5) + 32);
+    });
+  }
+}
+
+function convertDailyForecast (unit) {
+  if (unit === "celsius") {
+  document.querySelectorAll ("#day-temperature-forecast").forEach (function (temperature) {
+    let currentTemperature = temperature.innerHTML;
+    temperature.innerHTML = Math.round (currentTemperature * (5 / 9) - 32);
+    });
+  } else {
+  document.querySelectorAll("#day-temperature-forecast").forEach(function (temperature) {
+    let currentTemperature = temperature.innerHTML;
+   temperature.innerHTML = Math.round(currentTemperature * (9 / 5) + 32);
+    });
+  }
+}
 
 // Default city //
 searchCity("Vienna");
