@@ -208,7 +208,7 @@ ul {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 12px;
   font-weight: 200;
-  line-height: 33px;
+  line-height: 30px;
   margin: -17px 23px 23px;
   padding: 2px;
   text-align: center;
@@ -224,7 +224,7 @@ ul {
   font-family: "Questrial", sans-serif;
   font-size: 9.5px;
   line-height: 1.5;
-  margin-top: -20px;
+  margin-top: -5px;
   text-align: center;
   text-decoration: none;
 }
