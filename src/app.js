@@ -2,10 +2,10 @@
 
 // Details for Open Weather Map API
 
-let apiKey = "1fa9ff4126d95b8db54f3897a208e91c";
-let apiUrlCurrentWeather = "https://api.openweathermap.org/data/2.5/weather?";
-let apiUrlForecast ="https://api.openweathermap.org/data/2.5/forecast?q=";
-let units = "metric";
+const apiKey = "1fa9ff4126d95b8db54f3897a208e91c";
+const apiUrlCurrentWeather = "https://api.openweathermap.org/data/2.5/weather?";
+const apiUrlForecast ="https://api.openweathermap.org/data/2.5/forecast?q=";
+const units = "metric";
 
 // API call using user
 function searchCity(city) {
@@ -15,8 +15,11 @@ function searchCity(city) {
   let apiHourlySearchString = `${apiUrlForecast}${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiHourlySearchString).then(displayHourlyForecast);
 
-  let apiDailySearchString = `${apiUrlForecast}${city}&appid=${apiKey}&units=${units}`;
-  axios.get(apiDailySearchString).then(displayDailyForecast);
+  celsiusLink.removeEventListener("click", convertToCelsius);
+  fahrenheitLink.addEventListener("click", convertToFahrenheit);
+
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
 }
 
 function handleSubmit(event) {
@@ -37,12 +40,14 @@ searchCityButton.addEventListener("click", handleSubmit);
 // Get current location and API call using Geolocation 
 
 function searchLocation(position) {
-  let coordinates = `lat=${latitude}&lon=${longitude}`;
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
-  let apiSearchString = `${apiUrlCurrentWeather}${coordinates}&appid=${apiKey}&units=${units}`;
-  
-  axios.get(apiSearchString).then(displayWeather);
+
+  let apiSearchString = `${apiCurrentWeather}lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
+  axios.get(apiSearchString).then(displayCurrentWeather);     
+
+  let apiForecastSearchString = `${apiForecast}lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+  axios.get(apiForecastSearchString).then(displayHourlyForecast);   
 }
 
 function getGeolocation(event) {
@@ -160,7 +165,6 @@ function formatDate(date, timezone) {
   return formattedDate;
 }
 
-
 function getIcon(icon){
   let iconElement ="";
   if(icon === "01d") {
@@ -211,15 +215,16 @@ function displayWeather(response) {
   document.querySelector("#current-date-and-time").innerHTML = formatDate(new Date(), response.data.timezone);
 
   // Current weather icon, description and current temperature (including maximum and minimum temperatures)
-  document.querySelector("#current-weather-icon").setAttribute("src", `images/${response.data.weather[0].icon}.png`);
+  document.querySelector("#current-weather-icon").setAttribute("src", getIcon(response.data.weather[0].icon));
   document.querySelector("#current-weather-description").innerHTML = response.data.weather[0].description;
+  
   document.querySelector("#current-temperature").innerHTML = `${Math.round(celsiusTemperature) + "°"}`;
+  celsiusTemperature = response.data.main.temp;
+
   document.querySelector("#maximum-temperature").innerHTML = " " + Math.round(response.data.main.temp_max) + "°";
   document.querySelector("#minimum-temperature").innerHTML = " " + Math.round(response.data.main.temp_min) + "°";
-
-  celsiusTemperature = response.data.main.temp;
-  celsiusMinTemperature = response.data.main.temp_min;
   celsiusMaxTemperature = response.data.main.temp_max;
+  celsiusMinTemperature = response.data.main.temp_min;
 
   // Additional weather details
   document.querySelector("#real-feel").innerHTML =   " " + Math.round(response.data.main.feels_like) + "°";
@@ -229,6 +234,11 @@ function displayWeather(response) {
   document.querySelector("#wind").innerHTML = " " + Math.round(response.data.wind.speed) + " km/h";
 
   console.log(response.data);
+
+  let longitude = response.data.coord.lon;
+  let latitude = response.data.coord.lat;
+  
+ fetchDailyForecast (latitude, longitude);
 }
 
 // Display 3 Hour Weather Forecast 
@@ -250,7 +260,7 @@ function displayHourlyForecast(response) {
   hourlyForecastElement.innerHTML = null;
   let hourlyForecast = null;
 
-  for (let index = 0; index <= 4; index++) {
+  for (let index = 0; index < 5; index++) {
     hourlyForecast = response.data.list[index];
     let localTimestamp = hourlyForecast.dt + response.data.city.timezone;
 
@@ -258,8 +268,11 @@ function displayHourlyForecast(response) {
     <div class="col hour-box">
     <bold>${formatHours(localTimestamp * 1000)}</bold>
     <div class="col hour-weather-icon" id="hour-weather-icon">
-    <img class="hour-weather-icon" src="images/${hourlyForecast.weather[0].icon}.png" width="24" height="24"/></div>
-    <div class="col hour-temperature">${Math.round(hourlyForecast.main.temp)}°</div>
+    <img class="hour-weather-icon" src="${getIcon(hourlyForecast.weather[0].icon)}" 
+     width="21" height="21"/></div>
+    <div class="col hour-temperature" id="hour-temperature-forecast">
+    ${Math.round(hourlyForecast.main.temp)}°
+    </div>
     </div>`;
   }
 }
@@ -272,12 +285,9 @@ function getNameOfWeekDay(timestamp) {
   return `${weekDay}`;
  }
 
- function fetchForecast(latitude, longitude) {
-  let weatherDataValues = `exclude=current,minutely,hourly,alerts`
-  let coordinates = `lat=${latitude}&lon=${longitude}`
-  let apiSearchString = `${apiUrlForecast}${coordinates}&${weatherDataValues}&appid=${apiKey}&units=${units}`;
-
-  axios.get(apiSearchString).then(displayDailyForecast);
+ function fetchDailyForecast(latitude, longitude) {
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=current,minutely,hourly,alerts&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayDailyForecast);
 }
 
 function displayDailyForecast(response) {
@@ -285,18 +295,19 @@ function displayDailyForecast(response) {
   dailyForecastElement.innerHTML = null;
   let dailyForecast = null;
 
-  for (let index = 6; index <= 39; index+= 8) {
-    dailyForecast = response.data.list[index];
+  for (let index = 1; index < 6; index++) {
+    dailyForecast = response.data.daily[index];
 
     dailyForecastElement.innerHTML += `
     <div class="col day-forecast">
     ${getNameOfWeekDay (dailyForecast.dt * 1000)}
     <div class="weather-icon-forecast">
-    <img src="images/${dailyForecast.weather[0].icon}.png" width="24" height="24"/>
+     <img src="${getIcon (dailyForecast.weather[0].icon)}" width="21" height="21"/>
     </div>
-    <div class="temperature-forecast">
-    ${Math.round(dailyForecast.main.temp)}°
-    </div></div>`;
+    <div class="temperature-forecast" id="day-temperature-forecast">
+   ${Math.round(dailyForecast.temp.day)}°
+    </div>
+    </div>`;
   }
 }
 
@@ -305,14 +316,14 @@ function displayDailyForecast(response) {
 // Convert to Celsius 
 function convertToCelsius(event) {
   event.preventDefault();
-  
-  convertHourlyForecast("celsius");
-  convertDailyForecast ("celsius");
-  
+
   document.querySelector("#current-temperature").innerHTML = Math.round(celsiusTemperature) + "°";
   document.querySelector ("#real-feel").innerHTML = Math.round (celsiusTemperatureFeelsLike)+"°";
   document.querySelector ("#minimum-temperature").innerHTML = Math.round (celsiusMinTemperature) + "°" ;
   document.querySelector ("#maximum-temperature").innerHTML = Math.round (celsiusMaxTemperature) + "°";
+
+  convertHourlyForecast("celsius");
+  convertDailyForecast ("celsius");
 
   celsiusLink.removeEventListener("click", convertToCelsius);
   fahrenheitLink.addEventListener("click", convertToFahrenheit);
@@ -321,12 +332,14 @@ function convertToCelsius(event) {
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", convertToCelsius);
 
+let celsiusTemperature = null;
+let celsiusTemperatureFeelsLike = null;
+let celsiusMinTemperature = null;
+let celsiusMaxTemperature = null;
+
 // Convert to Fahrenheit 
 function convertToFahrenheit(event) {
   event.preventDefault();
-
-  convertHourlyForecast("fahrenheit");
-  convertDailyForecast("fahrenheit");
 
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   let temperatureElement = document.querySelector("#current-temperature");
@@ -341,17 +354,15 @@ function convertToFahrenheit(event) {
   let fahrenheitMaxTemperature = (celsiusMaxTemperature * 9) / 5 + 32;
   document.querySelector ("#maximum-temperature").innerHTML = Math.round (fahrenheitMaxTemperature) + "°";
 
+  convertHourlyForecast("fahrenheit");
+  convertDailyForecast("fahrenheit");
+
   celsiusLink.addEventListener("click", convertToCelsius);
   fahrenheitLink.removeEventListener("click", convertToFahrenheit);
 }
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
-
-let celsiusTemperature = null;
-let celsiusTemperatureFeelsLike = null;
-let celsiusMinTemperature = null;
-let celsiusMaxTemperature = null;
 
 function convertHourlyForecast (unit) {
   if (unit === "celsius") {
