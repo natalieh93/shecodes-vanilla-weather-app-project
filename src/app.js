@@ -215,36 +215,36 @@ function getIcon(icon){
 
 // Display city, country and current weather (input or geolocation)
 function displayWeather(response) {
-
   // City, country, local time
   document.querySelector("#city-and-country").innerHTML = response.data.name + ", " + response.data.sys.country;
   document.querySelector("#current-date-and-time").innerHTML = formatDate(new Date(), response.data.timezone);
-
-  // Current weather icon, description and current temperature (including maximum and minimum temperatures)
-  document.querySelector("#current-weather-icon").setAttribute("src", getIcon(response.data.weather[0].icon));
-  document.querySelector("#current-weather-description").innerHTML = response.data.weather[0].description;
   
-  document.querySelector("#current-temperature").innerHTML = `${Math.round(celsiusTemperature) + "°"}`;
+  // Current weather icon, description and current temperature (including maximum and minimum temperatures)
+  document
+    .querySelector("#current-weather-icon")
+    .setAttribute("src", getIcon(response.data.weather[0].icon));
+  
+  document.querySelector("#current-weather-description").innerHTML = response.data.weather[0].description;
   celsiusTemperature = response.data.main.temp;
-
-  document.querySelector("#maximum-temperature").innerHTML = " " + Math.round(response.data.main.temp_max) + "°";
-  document.querySelector("#minimum-temperature").innerHTML = " " + Math.round(response.data.main.temp_min) + "°";
+  document.querySelector("#current-temperature").innerHTML =`${ Math.round(celsiusTemperature) + "°"}`;
+  document.querySelector("#maximum-temperature").innerHTML =" " + Math.round(response.data.main.temp_max) + "°";
+  document.querySelector("#minimum-temperature").innerHTML =" " + Math.round(response.data.main.temp_min) + "°";
+  
   celsiusMaxTemperature = response.data.main.temp_max;
   celsiusMinTemperature = response.data.main.temp_min;
-
-  // Additional weather details
-  document.querySelector("#real-feel").innerHTML =   " " + Math.round(response.data.main.feels_like) + "°";
-  celsiusTemperatureFeelsLike = response.data.main.feels_like;
   
-  document.querySelector("#humidity").innerHTML = " " + response.data.main.humidity + "%";
+  // Additional weather details
+  document.querySelector("#real-feel").innerHTML =  " " + Math.round(response.data.main.feels_like) + "°";
+  
+  celsiusTemperatureFeelsLike = response.data.main.feels_like;
+  document.querySelector("#humidity").innerHTML =  " " + response.data.main.humidity + "%";
   document.querySelector("#wind").innerHTML = " " + Math.round(response.data.wind.speed) + " km/h";
-
+  
   console.log(response.data);
-
+  
   let longitude = response.data.coord.lon;
   let latitude = response.data.coord.lat;
-  
- fetchDailyForecast (latitude, longitude);
+  fetchDailyForecast(latitude, longitude);
 }
 
 // Display 3 Hour Weather Forecast 
