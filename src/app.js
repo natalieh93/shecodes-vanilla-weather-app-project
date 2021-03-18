@@ -160,6 +160,49 @@ function formatDate(date, timezone) {
   return formattedDate;
 }
 
+
+function getIcon(icon){
+  let iconElement ="";
+  if(icon === "01d") {
+    iconElement = "images/01d.png";
+  } else if (icon === "01n") {
+    iconElement = "images/01n.png";
+  } else if (icon === "02d") {
+    iconElement = "images/02d.png";
+  } else if (icon === "02n") {
+    iconElement = "images/02n.png";
+  } else if (icon === "03d") {
+    iconElement = "images/03d.png";
+  } else if (icon === "03n") {
+    iconElement = "images/03n.png";
+  } else if (icon === "04d") {
+    iconElement = "images/04d.png";
+  } else if (icon === "04n") {
+    iconElement = "images/04n.png";
+  } else if (icon === "09d") {
+    iconElement = "images/09d.png";
+  } else if (icon === "09n") {
+    iconElement = "images/09n.png"; 
+  } else if (icon === "10d") {
+    iconElement = "images/10d.png";
+  } else if (icon === "10n") {
+    iconElement = "images/10n.png";
+  } else if (icon === "11d") {
+    iconElement = "images/11d.png";
+  } else if (icon === "11n") {
+    iconElement = "images/11n.png";
+  } else if (icon === "13d") {
+    iconElement = "images/13d.png";
+    } else if (icon === "13n") {
+    iconElement = "images/13n.png";
+  } else if (icon === "50d") {
+    iconElement = "images/50d.png";
+  } else if (icon === "50n") {
+    iconElement = "images/50n.png";
+  }
+  return iconElement;
+}
+
 // Display city, country and current weather (input or geolocation)
 function displayWeather(response) {
 
