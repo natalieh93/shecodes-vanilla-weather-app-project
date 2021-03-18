@@ -4,7 +4,7 @@
 
 const apiKey = "1fa9ff4126d95b8db54f3897a208e91c";
 const apiUrlCurrentWeather = "https://api.openweathermap.org/data/2.5/weather?";
-const apiUrlForecast ="https://api.openweathermap.org/data/2.5/forecast?q=";
+const apiUrlForecast ="https://api.openweathermap.org/data/2.5/forecast?";
 const units = "metric";
 
 // API call using user
@@ -12,7 +12,7 @@ function searchCity(city) {
   let apiCurrentWeatherSearchString = `${apiUrlCurrentWeather}q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiCurrentWeatherSearchString ).then(displayWeather);
 
-  let apiHourlySearchString = `${apiUrlForecast}${city}&appid=${apiKey}&units=${units}`;
+  let apiHourlySearchString = `${apiUrlForecast}q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiHourlySearchString).then(displayHourlyForecast);
 
   celsiusLink.removeEventListener("click", convertToCelsius);
@@ -48,6 +48,12 @@ function searchLocation(position) {
 
   let apiForecastSearchString = `${apiForecast}lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
   axios.get(apiForecastSearchString).then(displayHourlyForecast);   
+
+  celsiusLink.removeEventListener("click", convertToCelsius);
+  fahrenheitLink.addEventListener("click", convertToFahrenheit);
+
+  celsiusLink.classList.add("active");
+  fahrenheitlink.classList.remove("active");
 }
 
 function getGeolocation(event) {
@@ -286,7 +292,7 @@ function getNameOfWeekDay(timestamp) {
  }
 
  function fetchDailyForecast(latitude, longitude) {
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=current,minutely,hourly,alerts&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=current,minutely,hourly,alerts&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(displayDailyForecast);
 }
 
