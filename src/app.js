@@ -370,32 +370,47 @@ function convertToFahrenheit(event) {
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
-function convertHourlyForecast (unit) {
+function convertHourlyForecast(unit) {
   if (unit === "celsius") {
-
-  document.querySelectorAll ("#hour-temperature-forecast").forEach(function (temperature) {
-  let currentTemperature = temperature.innerHTML;
-  temperature.innerHTML = Math.round (currentTemperature * (5 / 9) - 32);
-   });
+    document
+      .querySelectorAll("#hour-temperature-forecast")
+      .forEach(function (temperature) {
+        let currentTemperature = temperature.innerHTML.replace("°", "");
+        temperature.innerHTML = `${Math.round(
+          ((currentTemperature - 32) * 5) / 9
+        )}°`;
+      });
   } else {
-  document.querySelectorAll("#hour-temperature-forecast").forEach (function (temperature) {
-  let currentTemperature = temperature.innerHTML;
-  temperature.innerHTML = Math.round(currentTemperature * (9 / 5) + 32);
-    });
+    document
+      .querySelectorAll("#hour-temperature-forecast")
+      .forEach(function (temperature) {
+        let currentTemperature = temperature.innerHTML.replace("°", "");
+        temperature.innerHTML = `${Math.round(
+          (currentTemperature * 9) / 5 + 32
+        )}°`;
+      });
   }
 }
 
-function convertDailyForecast (unit) {
+function convertDailyForecast(unit) {
   if (unit === "celsius") {
-  document.querySelectorAll ("#day-temperature-forecast").forEach (function (temperature) {
-    let currentTemperature = temperature.innerHTML;
-    temperature.innerHTML = Math.round (currentTemperature * (5 / 9) - 32);
-    });
+    document
+      .querySelectorAll("#day-temperature-forecast")
+      .forEach(function (temperature) {
+        let currentTemperature = temperature.innerHTML.replace("°", "");
+        temperature.innerHTML = `${Math.round(
+          ((currentTemperature - 32) * 5) / 9
+        )}°`;
+      });
   } else {
-  document.querySelectorAll("#day-temperature-forecast").forEach(function (temperature) {
-    let currentTemperature = temperature.innerHTML;
-   temperature.innerHTML = Math.round(currentTemperature * (9 / 5) + 32);
-    });
+    document
+      .querySelectorAll("#day-temperature-forecast")
+      .forEach(function (temperature) {
+        let currentTemperature = temperature.innerHTML.replace("°", "");
+        temperature.innerHTML = `${Math.round(
+          (currentTemperature * 9) / 5 + 32
+        )}°`;
+      });
   }
 }
 
