@@ -128,15 +128,15 @@ ul {
   color: white;
   font-family: "Questrial", sans-serif;
   font-size: 17.5px;
-  margin-top: 22px;
+  margin-top: 20px;
   text-align: center;
 }
 
 .current-weather-description {
   color: #3ab5ca;
   font-family: "Questrial", sans-serif;
-  font-size: 14px;
-  margin: 10px 0px 10px;
+  font-size: 15px;
+  margin: 14px 0px 10px;
   text-align: center;
 }
 
@@ -156,7 +156,7 @@ ul {
   font-weight: 400;
   text-align: center;
   position: relative;
-  bottom: 70px;
+  bottom: 72px;
 }
 
 .max-and-min-temperatures {
@@ -188,10 +188,6 @@ ul {
   position: relative;
   bottom: 4px;
   left: 32px;
-}
-
-.hourly-forcast-header {
-  margin-top: 5px;
 }
 
 .hr-1,
