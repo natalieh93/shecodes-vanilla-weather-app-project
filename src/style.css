@@ -214,9 +214,9 @@ ul {
   text-align: center;
 }
 
-.temperature-forecast,
-.hour-temperature {
-  font-weight: 300;
+#day-temperature-forecast,
+#hour-temperature-forecast {
+  font-weight: 400;
   font-size: 13px;
 }
 
