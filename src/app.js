@@ -10,7 +10,7 @@ const units = "metric";
 // API call using user
 function searchCity(city) {
   let apiCurrentWeatherSearchString = `${apiUrlCurrentWeather}q=${city}&appid=${apiKey}&units=${units}`;
-  axios.get(apiCurrentWeatherSearchString ).then(displayWeather);
+  axios.get(apiCurrentWeatherSearchString ).then(displayCurrentWeather);
 
   let apiHourlySearchString = `${apiUrlForecast}q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiHourlySearchString).then(displayHourlyForecast);
@@ -43,10 +43,10 @@ function searchLocation(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
 
-  let apiSearchString = `${apiCurrentWeather}lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
+  let apiSearchString = `${apiUrlCurrentWeather}lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
   axios.get(apiSearchString).then(displayCurrentWeather);     
 
-  let apiForecastSearchString = `${apiForecast}lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+  let apiForecastSearchString = `${apiUrlForecast}lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
   axios.get(apiForecastSearchString).then(displayHourlyForecast);   
 
   celsiusLink.removeEventListener("click", convertToCelsius);
@@ -214,7 +214,7 @@ function getIcon(icon){
 }
 
 // Display city, country and current weather (input or geolocation)
-function displayWeather(response) {
+function displayCurrentWeather(response) {
   // City, country, local time
   document.querySelector("#city-and-country").innerHTML = response.data.name + ", " + response.data.sys.country;
   document.querySelector("#current-date-and-time").innerHTML = formatDate(new Date(), response.data.timezone);
