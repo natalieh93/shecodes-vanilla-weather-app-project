@@ -79,7 +79,7 @@
               </button>
             </div>
             <!--Temperature units-->
-            <span class="temperature-units">
+            <span class="col temperature-units">
               <a href="#" id="celsius-link" class="active"> °C</a>
               |
               <a href="#" id="fahrenheit-link">°F</a>
@@ -88,17 +88,20 @@
 
           <!--Current date and time-->
           <div>
-            <h3 class="current-date-and-time" id="current-date-and-time"></h3>
+            <h3
+              class="col-12 current-date-and-time"
+              id="current-date-and-time"
+            ></h3>
           </div>
 
           <!--Name of city and country-->
           <div>
-            <h1 class="city-and-country" id="city-and-country"></h1>
+            <h1 class="col-12 city-and-country" id="city-and-country"></h1>
           </div>
 
           <!--Current weather description-->
           <h4
-            class="current-weather-description"
+            class="col-12 current-weather-description"
             id="current-weather-description"
           >
             <strong></strong>
@@ -116,11 +119,11 @@
               />
             </div>
             <!--Current temperature-->
-            <span class="current-temperature" id="current-temperature">
+            <span class="col-12 current-temperature" id="current-temperature">
               -3°
             </span>
             <!--Weather details-->
-            <span class="weather-details">
+            <span class="col weather-details">
               <ul>
                 <li class="real-feel">
                   <i class="fas fa-thermometer-three-quarters"></i>&nbsp; Real
@@ -141,7 +144,7 @@
           </div>
 
           <!--Maximum and minimum temperatures-->
-          <h5 class="max-and-min-temperatures">
+          <h5 class="col-12 max-and-min-temperatures">
             <i class="fas fa-arrow-up"></i>&nbsp; High:
             <span id="maximum-temperature"></span>&nbsp;
             <strong>|</strong>&nbsp;&nbsp;
@@ -151,7 +154,9 @@
 
           <!--Hourly forecast header-->
           <div>
-            <h6 class="hourly-forecast-header">3 Hour Weather Forecast</h6>
+            <h6 class="col-12 hourly-forecast-header">
+              3 Hour Weather Forecast
+            </h6>
           </div>
           <!--Line break-->
           <hr class="hr-1" />
@@ -220,7 +225,7 @@
 
           <!--Five day weather forecast header-->
           <div>
-            <h6 class="daily-forecast-header">5 Day Outlook</h6>
+            <h6 class="col-12 daily-forecast-header">5 Day Outlook</h6>
           </div>
           <!--Line break-->
           <hr class="hr-2" />
@@ -287,59 +292,60 @@
               <strong>-7°</strong>
             </div>
           </div>
-
-          <!--Footer-->
-
-          <p class="footer">
-            Coded by
-            <a
-              href="https://www.linkedin.com/in/natalie-hood-4b088a10b/"
-              target="_blank"
-              class="coder-link"
-            >
-              Natalie Hood</a
-            >
-            &nbsp; • &nbsp; Open-sourced on
-            <a
-              href="https://github.com/natalieh93/shecodes-vanilla-weather-app-project"
-              target="_blank"
-              class="github-link"
-            >
-              GitHub
-            </a>
-            &nbsp; •&nbsp; Hosted on
-            <a
-              href="https://app.netlify.com/teams/natalieh93/overview"
-              target="_blank"
-              class="netlify-link"
-            >
-              Netlify <br />
-            </a>
-            Weather icons made by
-            <a
-              href="https://www.flaticon.com/authors/good-ware"
-              title="Good Ware"
-              class="weather-icon-creator"
-              >Good Ware</a
-            >
-            and
-            <a
-              href="http://www.pixelinspired.com/"
-              title="Zlatko Najdenovski"
-              class="weather-icon-creator"
-              >Zlatko Najdenovski</a
-            >
-            from
-            <a
-              href="https://www.flaticon.com/"
-              title="Flaticon"
-              class="weather-icon-website"
-              >www.flaticon.com <br />
-            </a>
-          </p>
         </div>
+
+        <!--Footer-->
+
+        <p class="footer">
+          Coded by
+          <a
+            href="https://www.linkedin.com/in/natalie-hood-4b088a10b/"
+            target="_blank"
+            class="coder-link"
+          >
+            Natalie Hood</a
+          >
+          &nbsp; • &nbsp; Open-sourced on
+          <a
+            href="https://github.com/natalieh93/shecodes-vanilla-weather-app-project"
+            target="_blank"
+            class="github-link"
+          >
+            GitHub
+          </a>
+          &nbsp; •&nbsp; Hosted on
+          <a
+            href="https://app.netlify.com/teams/natalieh93/overview"
+            target="_blank"
+            class="netlify-link"
+          >
+            Netlify <br />
+          </a>
+          Weather icons made by
+          <a
+            href="https://www.flaticon.com/authors/good-ware"
+            title="Good Ware"
+            class="weather-icon-creator"
+            >Good Ware</a
+          >
+          and
+          <a
+            href="http://www.pixelinspired.com/"
+            title="Zlatko Najdenovski"
+            class="weather-icon-creator"
+            >Zlatko Najdenovski</a
+          >
+          from
+          <a
+            href="https://www.flaticon.com/"
+            title="Flaticon"
+            class="weather-icon-website"
+            >www.flaticon.com <br />
+          </a>
+        </p>
       </div>
     </div>
+
     <script src="src/app.js"></script>
   </body>
 </html>
