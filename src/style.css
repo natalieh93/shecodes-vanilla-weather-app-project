@@ -47,6 +47,11 @@ ul {
   padding: 4px;
 }
 
+.weather-app-wrapper {
+  max-width: 600px;
+  margin: 30px auto;
+}
+
 .top-city-buttons {
   font-family: "Questrial", sans-serif;
   font-size: 13px;
