@@ -241,7 +241,7 @@ function displayWeather(response) {
   document.querySelector("#wind").innerHTML = " " + Math.round(response.data.wind.speed) + " km/h";
   
   console.log(response.data);
-  
+
   let longitude = response.data.coord.lon;
   let latitude = response.data.coord.lat;
   fetchDailyForecast(latitude, longitude);
@@ -273,10 +273,10 @@ function displayHourlyForecast(response) {
     hourlyForecastElement.innerHTML += `
     <div class="col hour-box">
     <bold>${formatHours(localTimestamp * 1000)}</bold>
-    <div class="col hour-weather-icon" id="hour-weather-icon">
-    <img class="hour-weather-icon" src="${getIcon(hourlyForecast.weather[0].icon)}" 
+    <div class="col hour-weather-icon">
+    <img src="${getIcon(hourlyForecast.weather[0].icon)}" 
      width="21" height="21"/></div>
-    <div class="col hour-temperature" id="hour-temperature-forecast">
+    <div class="col" id="hour-temperature-forecast">
     ${Math.round(hourlyForecast.main.temp)}°
     </div>
     </div>`;
@@ -307,10 +307,10 @@ function displayDailyForecast(response) {
     dailyForecastElement.innerHTML += `
     <div class="col day-forecast">
     ${getNameOfWeekDay (dailyForecast.dt * 1000)}
-    <div class="weather-icon-forecast">
+    <div class="col weather-icon-forecast">
      <img src="${getIcon (dailyForecast.weather[0].icon)}" width="21" height="21"/>
     </div>
-    <div class="temperature-forecast" id="day-temperature-forecast">
+    <div class="col" id="day-temperature-forecast">
    ${Math.round(dailyForecast.temp.day)}°
     </div>
     </div>`;
