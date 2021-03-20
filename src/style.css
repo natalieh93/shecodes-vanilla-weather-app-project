@@ -220,15 +220,14 @@ ul {
 
 .footer {
   font-family: "Questrial", sans-serif;
-  font-size: 10px;
+  font-size: 11px;
   margin-top: 52px;
   text-align: center;
   text-decoration: none;
 }
 
 .coder-link,
-.github-link,
-.netlify-link {
+.github-link {
   text-decoration: none;
   color: #2664ce;
 }
