@@ -1,13 +1,12 @@
 /// OPEN WEATHER API ///
 
 // Details for Open Weather Map API
-
 const apiKey = "1fa9ff4126d95b8db54f3897a208e91c";
 const apiUrlCurrentWeather = "https://api.openweathermap.org/data/2.5/weather?";
 const apiUrlForecast ="https://api.openweathermap.org/data/2.5/forecast?";
 const units = "metric";
 
-// API call using user
+// API call using user input
 function searchCity(city) {
   let apiCurrentWeatherSearchString = `${apiUrlCurrentWeather}q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiCurrentWeatherSearchString ).then(displayCurrentWeather);
@@ -215,6 +214,7 @@ function getIcon(icon){
 
 // Display city, country and current weather (input or geolocation)
 function displayCurrentWeather(response) {
+
   // City, country, local time
   document.querySelector("#city-and-country").innerHTML = response.data.name + ", " + response.data.sys.country;
   document.querySelector("#current-date-and-time").innerHTML = formatDate(new Date(), response.data.timezone);
@@ -225,23 +225,21 @@ function displayCurrentWeather(response) {
     .setAttribute("src", getIcon(response.data.weather[0].icon));
   
   document.querySelector("#current-weather-description").innerHTML = response.data.weather[0].description;
-  celsiusTemperature = response.data.main.temp;
+  
   document.querySelector("#current-temperature").innerHTML =`${ Math.round(celsiusTemperature) + "°"}`;
+  celsiusTemperature = response.data.main.temp;
   document.querySelector("#maximum-temperature").innerHTML =" " + Math.round(response.data.main.temp_max) + "°";
   document.querySelector("#minimum-temperature").innerHTML =" " + Math.round(response.data.main.temp_min) + "°";
-  
   celsiusMaxTemperature = response.data.main.temp_max;
   celsiusMinTemperature = response.data.main.temp_min;
   
   // Additional weather details
   document.querySelector("#real-feel").innerHTML =  " " + Math.round(response.data.main.feels_like) + "°";
-  
   celsiusTemperatureFeelsLike = response.data.main.feels_like;
+  
   document.querySelector("#humidity").innerHTML =  " " + response.data.main.humidity + "%";
   document.querySelector("#wind").innerHTML = " " + Math.round(response.data.wind.speed) + " km/h";
   
-  console.log(response.data);
-
   let longitude = response.data.coord.lon;
   let latitude = response.data.coord.lat;
   fetchDailyForecast(latitude, longitude);
@@ -317,7 +315,7 @@ function displayDailyForecast(response) {
   }
 }
 
-/// CONVERT TEMPERATURES ///
+/// CELSIUS AND FAHRENHEIT ///
 
 // Convert to Celsius 
 function convertToCelsius(event) {
