@@ -1,3 +1,11 @@
+body {
+  background-attachment: fixed;
+  background-image: linear-gradient(180deg, #305baa 0%, #4c6fac77 75%);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 button {
   border: none;
   background-color: transparent;
@@ -49,7 +57,6 @@ ul {
 
 .search-city-form {
   padding: 10px 33px;
-  width: 222px;
 }
 
 .form-control {
@@ -146,8 +153,10 @@ ul {
 
 .current-temperature {
   color: white;
+  display: block;
   font-size: 40px;
   font-weight: 400;
+  margin: auto;
   text-align: center;
   position: relative;
   bottom: 72px;
@@ -159,10 +168,10 @@ ul {
   color: white;
   font-size: 11px;
   font-weight: 200;
-  margin: 25px 0px -119px 0px;
+  margin: 25px 0px -105px 0px;
   text-align: center;
   position: relative;
-  bottom: 148px;
+  bottom: 135px;
 }
 
 #real-feel,
@@ -198,9 +207,8 @@ ul {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 12px;
   font-weight: 200;
-  line-height: 30px;
+  line-height: 31px;
   margin: -17px 23px 23px;
-  padding: 2px;
   text-align: center;
 }
 
@@ -212,9 +220,8 @@ ul {
 
 .footer {
   font-family: "Questrial", sans-serif;
-  font-size: 9.5px;
-  line-height: 1.5;
-  margin-top: -5px;
+  font-size: 10px;
+  margin-top: 52px;
   text-align: center;
   text-decoration: none;
 }
