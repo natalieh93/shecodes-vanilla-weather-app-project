@@ -226,8 +226,9 @@ function displayCurrentWeather(response) {
   
   document.querySelector("#current-weather-description").innerHTML = response.data.weather[0].description;
   
-  document.querySelector("#current-temperature").innerHTML =`${ Math.round(celsiusTemperature) + "°"}`;
   celsiusTemperature = response.data.main.temp;
+  document.querySelector("#current-temperature").innerHTML =`${Math.round(celsiusTemperature) + "°"}`;
+
   document.querySelector("#maximum-temperature").innerHTML =" " + Math.round(response.data.main.temp_max) + "°";
   document.querySelector("#minimum-temperature").innerHTML =" " + Math.round(response.data.main.temp_min) + "°";
   celsiusMaxTemperature = response.data.main.temp_max;
