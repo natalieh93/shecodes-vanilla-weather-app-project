@@ -3,7 +3,7 @@
 This weather app was a project for the <strong>“Plus” workshop</strong> from <strong>SheCodes</strong> and utilizes the <strong>API</strong> from <strong>openweathermap.org</strong> to extract weather data. It provides the current weather, a 3-hour weather forecast as well as a 5-day outlook for the selected or searched city, and for a user’s current geolocation.
 
 It is hosted on <strong>Netlify</strong> and can be viewed here: 
-https://elegant-davinci-32746b.netlify.app/#
+https://elegant-davinci-32746b.netlify.app/
 
 <strong>Additional app features:</strong>
 - Displays the date and the local time;
