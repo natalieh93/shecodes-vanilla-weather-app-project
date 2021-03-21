@@ -63,18 +63,19 @@ ul {
   border-radius: 10px;
   font-family: "Questrial", sans-serif;
   font-size: 12px;
+  max-width: 152px;
 }
 
 .search-city-button {
   border-radius: 9px;
   position: relative;
-  right: 47px;
+  right: 50px;
 }
 
 .geolocation-button {
   border-radius: 9px;
   position: relative;
-  right: 65px;
+  right: 69px;
 }
 
 .search-city-button,
@@ -100,7 +101,7 @@ ul {
   text-align: right;
   position: relative;
   bottom: 35px;
-  right: 15px;
+  right: 23px;
 }
 
 #celsius-link,
