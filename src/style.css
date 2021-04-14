@@ -222,7 +222,7 @@ ul {
 .footer {
   font-family: "Questrial", sans-serif;
   font-size: 11px;
-  margin-top: 53px;
+  margin-top: 60px;
   text-align: center;
   text-decoration: none;
 }
@@ -230,5 +230,5 @@ ul {
 .coder-link,
 .github-link {
   text-decoration: none;
-  color: #2664ce;
+  color: black;
 }
