@@ -10,7 +10,7 @@ button {
   border: none;
   background-color: transparent;
   color: white;
-  font-family: "Questrial", sans-serif;
+  font-family: "Poppins", sans-serif;
   padding: 15px 10px 1px 5px;
 }
 
@@ -20,62 +20,68 @@ button:focus {
 
 ul {
   color: white;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 10px;
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
   font-weight: 200;
-  line-height: 18px;
+  line-height: 19px;
   list-style: none;
   text-align: right;
   position: relative;
-  bottom: 128px;
-  right: 25px;
+  bottom: 125px;
+  right: 32px;
 }
 
 .container {
   background-color: #163d80;
   background-image: linear-gradient(315deg, #09214f 0%, #385fa477 74%);
-  border-radius: 20px;
   box-shadow: 5px 10px 10px 5px rgba(15, 15, 15);
-  max-height: 610px;
-  max-width: 377px;
+  max-height: 670px;
+  max-width: 490px;
 }
 
 .weather-app {
   font-size: 10px;
-  margin: 30px auto;
-  padding: 4px;
-  max-height: 610px;
-  max-width: 377px;
+  margin: 15px auto;
 }
 
 .top-city-buttons {
-  font-family: "Questrial", sans-serif;
-  font-size: 13px;
-  padding: 12px 0px 5px 40px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  padding: 12px 0px 9px 30px;
+}
+
+.top-city-buttons button {
+  padding-left: 21px;
 }
 
 .search-city-form {
-  padding: 10px 28px;
+  padding: 8px 30px;
 }
 
 .form-control {
-  border-radius: 10px;
-  font-family: "Questrial", sans-serif;
-  font-size: 12px;
-  max-width: 152px;
+  border-radius: 0;
+  border: 1px solid white;
+  box-shadow: 3px 3px 3px 2px rgba(34, 34, 34, 0.418);
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 25px;
+  width: 120%;
+  margin-left: 5px;
 }
 
 .search-city-button {
-  border-radius: 9px;
+  border-radius: 0px;
+  line-height: 25px;
   position: relative;
-  right: 57px;
+  left: 5px;
 }
 
 .geolocation-button {
-  border-radius: 9px;
+  border-radius: 0px;
+  line-height: 25px;
   position: relative;
-  right: 75px;
+  left: 10px;
 }
 
 .search-city-button,
@@ -96,12 +102,12 @@ ul {
 
 .temperature-units {
   color: white;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 100;
   text-align: right;
   position: relative;
-  bottom: 35px;
-  right: 25px;
+  bottom: 2px;
+  left: 10px;
 }
 
 #celsius-link,
@@ -118,27 +124,26 @@ ul {
 
 .current-date-and-time {
   color: #ffffff;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 12px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
   font-weight: 200;
-  margin-top: -10px;
+  margin-top: 18px;
   text-align: center;
 }
 
 .city-and-country {
   color: white;
-  font-family: "Questrial", sans-serif;
-  font-size: 17.5px;
+  font-family: "Poppins", sans-serif;
+  font-size: 23px;
   margin-top: 20px;
   text-align: center;
 }
 
 .current-weather-description {
   color: #3ab5ca;
-  font-family: "Questrial", sans-serif;
-  font-size: 15px;
-  margin: 14px 0px 10px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  margin: 17px 0px 10px;
   text-align: center;
 }
 
@@ -148,31 +153,31 @@ ul {
 
 .current-weather-icon {
   position: relative;
-  bottom: 15px;
-  left: 35px;
+  top: 10px;
+  left: 47px;
 }
 
 .current-temperature {
   color: white;
   display: block;
+  font-family: "Poppins", sans-serif;
   font-size: 40px;
   font-weight: 400;
-  margin: auto;
+  margin-top: 18px;
   text-align: center;
   position: relative;
   bottom: 72px;
 }
 
 .max-and-min-temperatures {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: "Poppins", sans-serif;
   color: white;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 200;
-  margin: 25px 0px -105px 0px;
+  margin: 20px 0px -105px 0px;
   text-align: center;
   position: relative;
-  bottom: 135px;
+  bottom: 130px;
 }
 
 #real-feel,
@@ -181,48 +186,64 @@ ul {
 #maximum-temperature,
 #minimum-temperature {
   color: white;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .hourly-forecast-header,
 .daily-forecast-header {
   color: white;
-  font-family: "Questrial", sans-serif;
-  font-size: 12px;
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
   position: relative;
   bottom: 4px;
-  left: 32px;
+  left: 35px;
+  text-transform: uppercase;
+}
+
+.hourly-forecast-header {
+  margin-top: 11px;
+}
+
+.daily-forecast-header {
+  margin-top: -8px;
 }
 
 .hr-1,
 .hr-2 {
   color: white;
-  margin: -3px 25px 25px 25px;
+  margin: -3px 33px 25px 33px;
   max-width: 600px;
 }
 
 .hourly-forecast,
 .daily-forecast {
   color: white;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 12px;
-  font-weight: 200;
-  line-height: 31px;
-  margin: -20px 31px 20px 30px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 32px;
+  margin: -58px 0 0px 0px;
   text-align: center;
+}
+
+.hourly-forecast {
+  padding: 40px 12px 37px;
+}
+
+.daily-forecast {
+  padding: 40px 5px;
 }
 
 #day-temperature-forecast,
 #hour-temperature-forecast {
   font-weight: 400;
-  font-size: 13px;
 }
 
-.footer {
-  font-family: "Questrial", sans-serif;
+footer {
+  font-family: "Poppins", sans-serif;
   font-size: 11px;
-  margin-top: 60px;
+  font-weight: 300;
+  margin-top: -1px;
   text-align: center;
   text-decoration: none;
 }
@@ -230,5 +251,10 @@ ul {
 .coder-link,
 .github-link {
   text-decoration: none;
+  color: black;
+}
+
+.coder-link:hover,
+.github-link:hover {
   color: black;
 }
