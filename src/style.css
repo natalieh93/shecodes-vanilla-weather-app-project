@@ -258,3 +258,106 @@ footer {
 .github-link:hover {
   color: black;
 }
+
+@media (max-width: 800px) {
+  footer {
+    margin-top: 22px;
+  }
+
+  ul {
+    font-size: 11px;
+    position: relative;
+    right: 15px;
+  }
+
+  .weather-app {
+    margin: 20px 15px auto;
+  }
+
+  .container {
+    padding: 0px;
+  }
+
+  .top-city-buttons {
+    font-size: 14px;
+    padding: 12px 15px 9px 30px;
+  }
+
+  .top-city-buttons button {
+    padding-left: 8px;
+  }
+
+  .form-control {
+    line-height: 25px;
+    width: 115%;
+    margin-left: -2px;
+  }
+
+  #search-city-input {
+    font-size: 13px;
+  }
+
+  .search-city-button {
+    position: relative;
+    left: -18px;
+  }
+
+  .geolocation-button {
+    position: relative;
+    left: -5px;
+  }
+
+  .temperature-units {
+    font-size: 15px;
+    position: relative;
+    left: -20px;
+  }
+
+  .current-date-and-time {
+    font-size: 13px;
+  }
+
+  .city-and-country {
+    font-size: 20px;
+  }
+
+  .current-weather-description {
+    font-size: 15px;
+  }
+
+  .current-weather-icon {
+    position: relative;
+    left: 35px;
+  }
+
+  .max-and-min-temperatures {
+    font-size: 12px;
+    margin-top: 25px;
+  }
+
+  .hourly-forecast-header,
+  .daily-forecast-header {
+    font-size: 12px;
+    position: relative;
+    left: 20px;
+  }
+
+  .hourly-forecast-header {
+    padding-top: 5px;
+  }
+
+  .hr-1,
+  .hr-2 {
+    color: white;
+    margin: -3px 20px 25px 20px;
+    max-width: 600px;
+  }
+
+  .hourly-forecast,
+  .daily-forecast {
+    font-size: 12px;
+    line-height: 25px;
+    margin: -52px 0px 0px;
+    padding: 40px 0px 40px;
+  }
+}
