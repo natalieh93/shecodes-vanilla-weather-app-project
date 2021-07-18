@@ -19,7 +19,7 @@ button:focus {
 }
 
 ul {
-  color: white;
+  color: #ffffff;
   font-family: "Poppins", sans-serif;
   font-size: 11px;
   font-weight: 200;
@@ -41,7 +41,7 @@ ul {
 
 .weather-app {
   font-size: 10px;
-  margin: 15px auto;
+  margin: 10px auto;
 }
 
 .top-city-buttons {
@@ -106,8 +106,8 @@ ul {
   font-weight: 100;
   text-align: right;
   position: relative;
-  bottom: 2px;
-  left: 10px;
+  bottom: 0px;
+  right: 35px;
 }
 
 #celsius-link,
@@ -243,7 +243,7 @@ footer {
   font-family: "Poppins", sans-serif;
   font-size: 11px;
   font-weight: 300;
-  margin-top: -1px;
+  margin-top: 3px;
   text-align: center;
   text-decoration: none;
 }
